@@ -18,7 +18,6 @@ namespace CyberCAT.Tests
             get
             {
                 yield return "saves/sav1.dat";
-                yield return "saves/sav2.dat";
                 yield return "saves/pc/midgame_1.5.dat";
                 yield return "saves/pc/midgame_1.6.dat";
                 yield return "saves/pc/start_1.6.dat";
