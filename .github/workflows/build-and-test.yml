@@ -9,12 +9,7 @@ jobs:
   build-and-test:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
-
-    - name: Setup .NET Core 3.1
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 3.1.405
+    - uses: actions/checkout@v2
 
     - name: Setup .NET 5.0
       uses: actions/setup-dotnet@v1
@@ -36,11 +31,6 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v1
-
-    - name: Setup .NET Core 3.1
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 3.1.405
 
     - name: Setup .NET 5.0
       uses: actions/setup-dotnet@v1
