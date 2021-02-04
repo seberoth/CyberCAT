@@ -6,8 +6,8 @@ using NUnit.Framework;
 
 namespace CyberCAT.Tests
 {
-    [TestFixture("saves\\sav1.dat")]
-    [TestFixture("saves\\sav2.dat")]
+    [TestFixture("saves/sav1.dat")]
+    [TestFixture("saves/sav2.dat")]
     public class SaveFileCompressionTests
     {
         private readonly string _saveFile;
