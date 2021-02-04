@@ -121,6 +121,7 @@ namespace CyberCAT.Core
             public const string EVENT_MANAGER = "eventManager";
             public const string TIME_CORE = "\"Core\"";
         }
+
         public static class Numbers
         {
             public const int DEFAULT_HEADER_SIZE = 3105;
