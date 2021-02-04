@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 using CyberCAT.Core;
 using CyberCAT.Core.Classes;
 using CyberCAT.Core.Classes.Interfaces;
@@ -77,7 +74,7 @@ namespace CyberCAT.Tests
 
             var newSaveFile = new SaveFile(_parsers);
             newSaveFile.Load(new MemoryStream(bytes));
-            var newBytes = newSaveFile.Save();
+            var newBytes = newSaveFile.Save(true, true);
 
             Assert.That(newBytes.Length, Is.EqualTo(bytes.Length));
             Assert.That(newBytes.SequenceEqual(bytes), Is.True);
@@ -115,7 +112,7 @@ namespace CyberCAT.Tests
             var factCount = firstTable.FactEntries.Count;
 
             List<byte[]> newSave = new List<byte[]>(); // we need the array but cannot assign a variable inside the delegate
-            Assert.DoesNotThrow(() => { newSave.Add(saveFile.Save()); });
+            Assert.DoesNotThrow(() => { newSave.Add(saveFile.Save(true, true)); });
 
             saveFile = new SaveFile();
             using (var stream = new MemoryStream(newSave[0]))
@@ -151,7 +148,7 @@ namespace CyberCAT.Tests
             var factCount = firstTable.FactEntries.Count;
 
             List<byte[]> newSave = new List<byte[]>(); // we need the array but cannot assign a variable inside the delegate
-            Assert.DoesNotThrow(() => { newSave.Add(saveFile.Save()); });
+            Assert.DoesNotThrow(() => { newSave.Add(saveFile.Save(true, true)); });
 
             saveFile = new SaveFile();
             using (var stream = new MemoryStream(newSave[0]))
@@ -207,7 +204,7 @@ namespace CyberCAT.Tests
             tpp.AdditionalList.Add(new CharacterCustomizationAppearances.ValueEntry {FirstString = "eyes", SecondString = "h071"});
 
             List<byte[]> newSave = new List<byte[]>(); // we need the array but cannot assign a variable inside the delegate
-            Assert.DoesNotThrow(() => { newSave.Add(saveFile.Save()); });
+            Assert.DoesNotThrow(() => { newSave.Add(saveFile.Save(true, true)); });
 
             saveFile = new SaveFile();
             using (var stream = new MemoryStream(newSave[0]))
@@ -259,7 +256,7 @@ namespace CyberCAT.Tests
             moddableItem.RootNode.Children.RemoveAt(1);
 
             List<byte[]> newSave = new List<byte[]>(); // we need the array but cannot assign a variable inside the delegate
-            Assert.DoesNotThrow(() => { newSave.Add(saveFile.Save()); });
+            Assert.DoesNotThrow(() => { newSave.Add(saveFile.Save(true, true)); });
             saveFile = new SaveFile();
             using (var stream = new MemoryStream(newSave[0]))
             {

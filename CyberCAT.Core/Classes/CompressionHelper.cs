@@ -55,8 +55,10 @@ namespace CyberCAT.Core.Classes
             WriteChunkTable(writer, chunks);
         }
 
-        public static void WriteCompressed(BinaryWriter writer, byte[] data)
+        public static void WriteCompressed(BinaryWriter writer, byte[] data, bool force32bit)
         {
+            LZ4Codec.Enforce32 = force32bit;
+
             var chunkCount = data.Length / Constants.Numbers.DEFAULT_CHUNK_SIZE;
             var chunkBytesLeft = data.Length % Constants.Numbers.DEFAULT_CHUNK_SIZE;
             byte[] inBuffer;
@@ -96,7 +98,7 @@ namespace CyberCAT.Core.Classes
             };
         }
 
-        public static byte[] Recompress(Stream stream)
+        public static byte[] Recompress(Stream stream, bool force32bit = false)
         {
             byte[] resultBuffer;
 
@@ -118,7 +120,7 @@ namespace CyberCAT.Core.Classes
                 using (var writer = new BinaryWriter(ms))
                 {
                     writer.Write(headerBuffer);
-                    WriteCompressed(writer, dataBuffer);
+                    WriteCompressed(writer, dataBuffer, force32bit);
 
                     var pos = (int) writer.BaseStream.Position;
                     writer.Write(footerBuffer);

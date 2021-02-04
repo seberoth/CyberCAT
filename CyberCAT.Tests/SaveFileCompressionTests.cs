@@ -2,7 +2,6 @@
 using System.IO;
 using CyberCAT.Core;
 using CyberCAT.Core.Classes;
-using Newtonsoft.Json;
 using NUnit.Framework;
 
 namespace CyberCAT.Tests
@@ -48,7 +47,7 @@ namespace CyberCAT.Tests
         {
             using (var decompressedInputStream = File.OpenRead(_binPath))
             {
-                var compressedFile = CompressionHelper.Recompress(decompressedInputStream);
+                var compressedFile = CompressionHelper.Recompress(decompressedInputStream, true);
 
                 var fileName = Path.GetFileNameWithoutExtension(_binPath);
                 var recompressedFilePath = $"{Constants.FileStructure.OUTPUT_FOLDER_NAME}";

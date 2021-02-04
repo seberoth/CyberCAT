@@ -202,7 +202,7 @@ namespace CyberCAT.Core.Classes
             }
         }
 
-        public byte[] Save(bool compress = true)
+        public byte[] Save(bool compress = true, bool force32bit = false)
         {
             byte[] result;
 
@@ -216,7 +216,7 @@ namespace CyberCAT.Core.Classes
 
                     if (compress)
                     {
-                        CompressionHelper.WriteCompressed(writer, uncompressedData);
+                        CompressionHelper.WriteCompressed(writer, uncompressedData, force32bit);
                     }
                     else
                     {

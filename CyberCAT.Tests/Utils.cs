@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CyberCAT.Tests
+﻿namespace CyberCAT.Tests
 {
     class Utils
     {
@@ -25,7 +18,7 @@ namespace CyberCAT.Tests
             string pathAssembly = System.Reflection.Assembly.GetExecutingAssembly().Location;
             string folderAssembly = System.IO.Path.GetDirectoryName(pathAssembly);
             if (folderAssembly.EndsWith("\\") == false) folderAssembly = folderAssembly + "\\";
-            string folderProjectLevel = System.IO.Path.GetFullPath(folderAssembly + "..\\..\\");
+            string folderProjectLevel = System.IO.Path.GetFullPath(folderAssembly + "..\\..\\..\\");
             return folderProjectLevel;
         }
     }
