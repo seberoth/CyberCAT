@@ -11,7 +11,6 @@ namespace CyberCAT.Tests
     public class SaveFileCompressionTests
     {
         private readonly string _saveFile;
-        private string _jsonPath;
         private string _binPath;
         private string _recompressedBinPath;
 

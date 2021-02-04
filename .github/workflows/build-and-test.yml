@@ -42,8 +42,9 @@ jobs:
 
     - name: Pack
       run: dotnet pack --output ./artifacts --configuration Release -p:Version=$VERSION
+      working-directory: ./CyberCAT.Core
 
     - uses: actions/upload-artifact@v1
       with:
         name: artifacts
-        path: ./artifacts
+        path: ./CyberCAT.Core/artifacts

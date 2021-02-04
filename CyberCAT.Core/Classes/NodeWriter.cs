@@ -9,7 +9,6 @@ namespace CyberCAT.Core.Classes
 {
     public class NodeWriter : BinaryWriter
     {
-        private MemoryStream _ms;
         private List<INodeParser> _parsers;
         
         private List<SaveFile.NodeInfo> _nodeInfos;
