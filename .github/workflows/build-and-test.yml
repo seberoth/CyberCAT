@@ -1,0 +1,25 @@
+name: CyberCAT - Build & Test
+
+on: 
+  push:
+    branches:
+      - master
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.102
+
+    - name: Build
+      run: dotnet build --configuration Release
+      working-directory: ./CyberCAT.Core
+
+    - name: Run unit tests
+      run: dotnet test --configuration Release
+      working-directory: ./CyberCAT.Tests
